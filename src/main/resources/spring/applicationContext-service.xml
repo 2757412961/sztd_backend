@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+	<!-- 定义service -->
+	<bean id="UserService" class="cn.edu.zju.gislab.SZTDService.service.impl.UserServiceImp"></bean>
+	<bean id="CTDService" class="cn.edu.zju.gislab.SZTDService.service.impl.CTDServiceImp"></bean>
+	<bean id="TideService" class="cn.edu.zju.gislab.SZTDService.service.impl.TideServiceImp"></bean>
+	<bean id="PredictPaperService" class="cn.edu.zju.gislab.SZTDService.service.impl.PredictPaperServiceImp"></bean>
+	<bean id="NCDataService" class="cn.edu.zju.gislab.SZTDService.service.impl.NCDataServiceImp"></bean>
+	<bean id="ProductionService" class="cn.edu.zju.gislab.SZTDService.service.impl.ProductionServiceImp"></bean>
+	<bean id="SiteService" class="cn.edu.zju.gislab.SZTDService.service.impl.SiteServiceImp"></bean>
+	<bean id="BuoyGPSService" class="cn.edu.zju.gislab.SZTDService.service.impl.BuoyGPSServiceImp"></bean>
+	<bean id="BuoyWVService" class="cn.edu.zju.gislab.SZTDService.service.impl.BuoyWVServiceImp"></bean>
+	<bean id="FUBService" class="cn.edu.zju.gislab.SZTDService.service.impl.FUBServiceImp"></bean>
+    <bean id="ADCPLevService" class="cn.edu.zju.gislab.SZTDService.service.impl.ADCPLevServiceImp"></bean>
+	<bean id="ADCPInfoService" class="cn.edu.zju.gislab.SZTDService.service.impl.ADCPInfoServiceImp"></bean>
+
+
+</beans>

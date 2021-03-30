@@ -1,0 +1,53 @@
+package cn.edu.zju.gislab.SZTDService.po;
+
+public class Typhpre extends TyphpreKey {
+    private Integer year;
+
+    private Integer month;
+
+    private Integer day;
+
+    private Integer hour;
+
+    private String path;
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
+    }
+
+    public Integer getHour() {
+        return hour;
+    }
+
+    public void setHour(Integer hour) {
+        this.hour = hour;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path == null ? null : path.trim();
+    }
+}

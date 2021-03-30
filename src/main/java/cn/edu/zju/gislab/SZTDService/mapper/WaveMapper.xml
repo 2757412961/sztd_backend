@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.zju.gislab.SZTDService.mapper.WaveMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.zju.gislab.SZTDService.po.Wave" >
+    <id column="DT" property="dt" jdbcType="DATE" />
+    <result column="FILENAME" property="filename" jdbcType="VARCHAR" />
+    <result column="PATH" property="path" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    DT, FILENAME, PATH
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.zju.gislab.SZTDService.po.WaveExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from WAVE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.sql.Timestamp" >
+    select 
+    <include refid="Base_Column_List" />
+    from WAVE
+    where DT = #{dt,jdbcType=DATE}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.sql.Timestamp" >
+    delete from WAVE
+    where DT = #{dt,jdbcType=DATE}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.zju.gislab.SZTDService.po.WaveExample" >
+    delete from WAVE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.zju.gislab.SZTDService.po.Wave" >
+    insert into WAVE (DT, FILENAME, PATH
+      )
+    values (#{dt,jdbcType=DATE}, #{filename,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.zju.gislab.SZTDService.po.Wave" >
+    insert into WAVE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dt != null" >
+        DT,
+      </if>
+      <if test="filename != null" >
+        FILENAME,
+      </if>
+      <if test="path != null" >
+        PATH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dt != null" >
+        #{dt,jdbcType=DATE},
+      </if>
+      <if test="filename != null" >
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null" >
+        #{path,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.zju.gislab.SZTDService.po.WaveExample" resultType="java.lang.Integer" >
+    select count(*) from WAVE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update WAVE
+    <set >
+      <if test="record.dt != null" >
+        DT = #{record.dt,jdbcType=DATE},
+      </if>
+      <if test="record.filename != null" >
+        FILENAME = #{record.filename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.path != null" >
+        PATH = #{record.path,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update WAVE
+    set DT = #{record.dt,jdbcType=DATE},
+      FILENAME = #{record.filename,jdbcType=VARCHAR},
+      PATH = #{record.path,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.zju.gislab.SZTDService.po.Wave" >
+    update WAVE
+    <set >
+      <if test="filename != null" >
+        FILENAME = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null" >
+        PATH = #{path,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DT = #{dt,jdbcType=DATE}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.zju.gislab.SZTDService.po.Wave" >
+    update WAVE
+    set FILENAME = #{filename,jdbcType=VARCHAR},
+      PATH = #{path,jdbcType=VARCHAR}
+    where DT = #{dt,jdbcType=DATE}
+  </update>
+</mapper>
