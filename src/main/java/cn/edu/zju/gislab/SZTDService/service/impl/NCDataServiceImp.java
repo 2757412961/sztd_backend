@@ -1,14 +1,11 @@
 package cn.edu.zju.gislab.SZTDService.service.impl;
 
 import cn.edu.zju.gislab.SZTDService.service.NCDataService;
-import org.quartz.utils.counter.sampled.TimeStampedCounterValue;
-import ucar.ma2.Array;
 import ucar.ma2.ArrayDouble;
 import ucar.ma2.ArrayFloat;
 import ucar.ma2.Index;
 import ucar.nc2.NetcdfFile;
 import ucar.nc2.Variable;
-import visad.DateTime;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
