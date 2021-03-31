@@ -8,12 +8,13 @@ import cn.edu.zju.gislab.SZTDService.po.FubExample;
 import cn.edu.zju.gislab.SZTDService.po.FubnewKey;
 import cn.edu.zju.gislab.SZTDService.service.FUBService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Service
 public class FUBServiceImp implements FUBService {
     @Autowired
     private FubMapper fubMapper;

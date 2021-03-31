@@ -53,11 +53,17 @@ public class CTDController {
         List<Ctd> buoyBottomCtdList = ctdService.getCtdHistory(3,stTime,edTime);
         //浮标表层CTD=4
         List<Ctd> buoyTopCtdList = ctdService.getCtdHistory(4,stTime,edTime);
+        //浮标表层CTD=5
+        List<Ctd> naviBuoy01CtdList = ctdService.getCtdHistory(5,stTime,edTime);
+        //浮标表层CTD=5
+        List<Ctd> naviBuoy02CtdList = ctdService.getCtdHistory(6,stTime,edTime);
 
         ctdAllList.add(platformBottomCtdList);
         ctdAllList.add(platformTopCtdList);
         ctdAllList.add(buoyBottomCtdList);
         ctdAllList.add(buoyTopCtdList);
+        ctdAllList.add(naviBuoy01CtdList);
+        ctdAllList.add(naviBuoy02CtdList);
 
         return ctdAllList;
 
